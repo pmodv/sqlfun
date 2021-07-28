@@ -1,3 +1,37 @@
+CREATE TABLE employees (
+  `id` INTEGER,
+  `name` VARCHAR(7),
+  `supervisor_id` INTEGER default NULL
+);
+
+INSERT INTO employees
+  (`id`, `name`, `supervisor_id`)
+VALUES
+  ('0', 'sally', '2'),
+  ('1', 'mark', '3'),
+  ('2', 'dave', '4'),
+  ('3', 'richard', '5'),
+  ('4', 'sue',NULL),
+  ('5', 'dale',NULL);
+
+CREATE TABLE burrito (
+  `type` VARCHAR(5),
+  `weight` FLOAT,
+  `date` DATETIME,
+  `cooked_by_employee_id` INTEGER
+);
+
+INSERT INTO burrito
+  (`type`, `weight`, `date`, `cooked_by_employee_id`)
+VALUES
+  ('salty', '125.6', '2017-11-25', '0'),
+  ('sweet', '81.7', '2017-11-28', '1'),
+  ('salty', '227.6', '2017-11-29', '1'),
+  ('sweet', '223.1', '2017-12-05', '0');
+
+
+
+
 
 with recursive cte_1 AS (
   SELECT id, name, supervisor_id, name as root_name
