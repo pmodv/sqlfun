@@ -1,0 +1,11 @@
+
+with recursive cte_1 AS (
+  SELECT id, name, supervisor_id, name as root_name
+  FROM employees
+  WHERE supervisor_id is NULL
+  UNION ALL 
+  SELECT e.id, e.name, e.supervisor_id, cw.root_name
+  FROM employees e, cte_1 cw
+  WHERE cw.id = e.supervisor_id
+  )
+  select * from cte_1;
