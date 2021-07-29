@@ -1,2 +1,2 @@
 # sqlfun
-just some games with recursion in sql
+just some games with recursion and window functions in sql
