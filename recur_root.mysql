@@ -31,7 +31,6 @@ VALUES
 
 
 
-
 with cte2 as (
 select a.root_name,a.name, a.weight,count(weight) over w  as cnt,row_number() OVER w as row_num
 FROM (
@@ -56,5 +55,5 @@ WINDOW w AS (PARTITION BY a.root_name ORDER BY a.weight
    
    )
   
-  select DISTINCT root_name, avg(weight) over w from median_cte
+  select DISTINCT root_name, round(avg(weight) over w,2) from median_cte
   WINDOW w AS (PARTITION BY median_cte.root_name)
